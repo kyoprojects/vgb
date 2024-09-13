@@ -10,11 +10,12 @@ window.addEventListener('DOMContentLoaded', function () {
   requestAnimationFrame(raf);
 
   // header
-  let targetElement = document.querySelector('.header-wrap');
-  gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
+  // let targetElement = document.querySelector(".framer-1jbc6qn");
+  let targetElement = document.querySelector('[data-framer-name="header-wrap"]');
+  // gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
   let lastScrollTop = 0;
   let threshold = 100;
-  let hysteresis = 20;
+  let hysteresis = 100;
 
   window.addEventListener(
     'scroll',
@@ -29,10 +30,7 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       } else {
         // Upscroll
-        if (currentScroll <= threshold) {
-          // Show header when scrolling up and below threshold
-          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
-        } else if (currentScroll > threshold + hysteresis) {
+        if (currentScroll > threshold + hysteresis) {
           gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
         } else if (currentScroll <= threshold - hysteresis) {
           // Using hysteresis

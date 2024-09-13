@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function () {
   gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
   let lastScrollTop = 0;
   let threshold = 100;
-  let hysteresis = 100;
+  let hysteresis = 20;
 
   window.addEventListener(
     'scroll',

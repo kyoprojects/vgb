@@ -11,8 +11,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // header
   // let targetElement = document.querySelector(".framer-1jbc6qn");
-  let targetElement = document.querySelector('[data-framer-name="header-wrap"]');
-  gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 0 });
+  let targetElement = document.querySelector('.header-wrap');
+  //   gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 0 });
   let lastScrollTop = 0;
   let threshold = 100;
   let hysteresis = 100;

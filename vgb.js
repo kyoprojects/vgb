@@ -1,14 +1,43 @@
-console.log('hello world');
+// dom contentloaded eventstnr
 
-const lenis = new Lenis();
-
-lenis.on('scroll', e => {
-  console.log(e);
-});
-
-function raf(time) {
-  lenis.raf(time);
+window.addEventListener('DOMContentLoaded', function () {
+  //lenis
+  const lenis = new Lenis();
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
   requestAnimationFrame(raf);
-}
 
-requestAnimationFrame(raf);
+  // header
+  let targetElement = document.querySelector('.header-wrap');
+  gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
+  let lastScrollTop = 0;
+  let threshold = 100;
+  let hysteresis = 100;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Downscroll
+        if (currentScroll > threshold + hysteresis) {
+          // Adding hysteresis
+          gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
+        }
+      } else {
+        // Upscroll
+        if (currentScroll > threshold + hysteresis) {
+          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
+        } else if (currentScroll <= threshold - hysteresis) {
+          // Using hysteresis
+          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 0 });
+        }
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    },
+    false
+  );
+});

@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // header
   let targetElement = document.querySelector('.header-wrap');
-  gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
+  //   gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
   let lastScrollTop = 0;
   let threshold = 100;
   let hysteresis = 100;

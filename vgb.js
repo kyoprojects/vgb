@@ -32,9 +32,6 @@ window.addEventListener('DOMContentLoaded', function () {
         // Upscroll
         if (currentScroll > threshold + hysteresis) {
           gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
-        } else if (currentScroll <= threshold - hysteresis) {
-          // Using hysteresis
-          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 0 });
         }
       }
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;

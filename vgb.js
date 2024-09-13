@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // header
   let targetElement = document.querySelector('.header-wrap');
-  //   gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
+  gsap.to(targetElement, { duration: 0.3, y: -80, autoAlpha: 0 });
   let lastScrollTop = 0;
   let threshold = 100;
   let hysteresis = 100;
@@ -29,8 +29,17 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       } else {
         // Upscroll
-        gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
+        if (currentScroll <= threshold) {
+          // Show header when scrolling up and below threshold
+          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
+        } else if (currentScroll > threshold + hysteresis) {
+          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 1 });
+        } else if (currentScroll <= threshold - hysteresis) {
+          // Using hysteresis
+          gsap.to(targetElement, { duration: 0.3, y: 0, autoAlpha: 0 });
+        }
       }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     },
     false
   );

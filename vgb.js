@@ -62,10 +62,6 @@ window.addEventListener('DOMContentLoaded', function () {
         delay: 10
       }
     });
-    tl.to(targetElement, {
-      opacity: '0.2',
-      // duration: 1,
-      ease: 'power2.inOut'
-    });
+    tl.fromTo(targetElement, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.inOut' });
   });
 });

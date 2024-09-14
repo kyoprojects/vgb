@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
     fullText.revert();
     runSplit();
   });
-  $('.line').each(function () {
+  $('.word').each(function () {
     let triggerElement = $(this);
     let targetElement = triggerElement.find('.word-mask');
     let tl = gsap.timeline({

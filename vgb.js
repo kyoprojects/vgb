@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', function () {
     scrollTrigger: {
       trigger: textElement,
       start: 'top bottom',
-      end: 'bottom 20%',
+      end: 'bottom center',
       scrub: true,
       delay: 10
     }

@@ -60,5 +60,5 @@ window.addEventListener('DOMContentLoaded', function () {
       delay: 10
     }
   });
-  tl.fromTo(masks, { opacity: 0.8 }, { opacity: 0, duration: 0.1, ease: 'power2.inOut', stagger: 0.1 });
+  tl.fromTo(masks, { opacity: 0.8 }, { opacity: 0, duration: 0.2, ease: 'power2.inOut', stagger: 0.05 });
 });

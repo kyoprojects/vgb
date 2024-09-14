@@ -49,7 +49,8 @@ window.addEventListener('DOMContentLoaded', function () {
     fullText.revert();
     runSplit();
   });
-
+  let masks = textElement.querySelectorAll('.word-mask');
+  console.log(masks);
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: textElement,
@@ -59,5 +60,5 @@ window.addEventListener('DOMContentLoaded', function () {
       delay: 10
     }
   });
-  tl.fromTo(targetElement, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: 'power2.inOut', stagger: 0.1 });
+  tl.fromTo(masks, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: 'power2.inOut', stagger: 0.1 });
 });

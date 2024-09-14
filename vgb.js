@@ -64,7 +64,7 @@ window.addEventListener('DOMContentLoaded', function () {
       scrollTrigger: {
         trigger: element,
         start: 'top bottom',
-        end: 'bottom center',
+        end: 'bottom 30%',
         scrub: true
       }
     });

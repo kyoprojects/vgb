@@ -42,11 +42,18 @@ window.addEventListener('DOMContentLoaded', function () {
   textElement.forEach(element => {
     let fullText;
     function runSplit() {
+      // Split the text into words within the current element
       fullText = new SplitType(element, { types: 'words' });
       console.log(fullText);
-      $('.word').append('<div class="word-mask"></div>');
+
+      // Append word masks to words within the current element
+      element.querySelectorAll('.word').forEach(word => {
+        let mask = document.createElement('div');
+        mask.classList.add('word-mask');
+        word.appendChild(mask);
+      });
     }
-    runSplit(element);
+    runSplit();
     window.addEventListener('resize', () => {
       fullText.revert();
       runSplit();
@@ -58,8 +65,7 @@ window.addEventListener('DOMContentLoaded', function () {
         trigger: element,
         start: 'top bottom',
         end: 'bottom center',
-        scrub: true,
-        delay: 10
+        scrub: true
       }
     });
     tl.fromTo(masks, { opacity: 0.6 }, { opacity: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.05 });

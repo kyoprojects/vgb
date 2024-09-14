@@ -37,28 +37,31 @@ window.addEventListener('DOMContentLoaded', function () {
   );
 
   // split text
-  let fullText;
-  let textElement = document.querySelector('.primary-heading');
-  function runSplit() {
-    fullText = new SplitType(textElement, { types: 'words' });
-    console.log(fullText);
-    $('.word').append('<div class="word-mask"></div>');
-  }
-  runSplit(textElement);
-  window.addEventListener('resize', () => {
-    fullText.revert();
-    runSplit();
-  });
-  let masks = textElement.querySelectorAll('.word-mask');
-  console.log(masks);
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: textElement,
-      start: 'top bottom',
-      end: 'bottom center',
-      scrub: true,
-      delay: 10
+  let textElement = document.querySelectorAll('.primary-heading');
+
+  textElement.forEach(element => {
+    let fullText;
+    function runSplit() {
+      fullText = new SplitType(element, { types: 'words' });
+      console.log(fullText);
+      $('.word').append('<div class="word-mask"></div>');
     }
+    runSplit(element);
+    window.addEventListener('resize', () => {
+      fullText.revert();
+      runSplit();
+    });
+    let masks = element.querySelectorAll('.word-mask');
+    console.log(masks);
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: element,
+        start: 'top bottom',
+        end: 'bottom center',
+        scrub: true,
+        delay: 10
+      }
+    });
+    tl.fromTo(masks, { opacity: 0.6 }, { opacity: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.05 });
   });
-  tl.fromTo(masks, { opacity: 0.6 }, { opacity: 0, duration: 0.5, ease: 'power2.inOut', stagger: 0.05 });
 });

@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function () {
     fullText = new SplitType(textElement, { types: 'words' });
     console.log(fullText);
 
-    $('.line').append('<div class="line-mask"></div>');
+    $('.word').append('<div class="word-mask"></div>');
   }
   runSplit();
   window.addEventListener('resize', () => {
@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
   $('.line').each(function () {
     let triggerElement = $(this);
-    let targetElement = triggerElement.find('.line-mask');
+    let targetElement = triggerElement.find('.word-mask');
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: triggerElement,

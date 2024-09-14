@@ -40,7 +40,7 @@ window.addEventListener('DOMContentLoaded', function () {
   let fullText;
   function runSplit() {
     let textElement = document.querySelector('.primary-heading');
-    fullText = new SplitType(textElement, { types: 'lines' });
+    fullText = new SplitType(textElement, { types: 'words' });
     console.log(fullText);
 
     $('.line').append('<div class="line-mask"></div>');
@@ -63,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     });
     tl.to(targetElement, {
-      width: '0%',
+      opacity: '0.2',
       // duration: 1,
       ease: 'power2.inOut'
     });

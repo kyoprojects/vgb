@@ -38,11 +38,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // split text
   let fullText;
+  let textElement = document.querySelector('.primary-heading');
   function runSplit() {
-    let textElement = document.querySelector('.primary-heading');
     fullText = new SplitType(textElement, { types: 'words' });
     console.log(fullText);
-
     $('.word').append('<div class="word-mask"></div>');
   }
   runSplit();
@@ -50,18 +49,15 @@ window.addEventListener('DOMContentLoaded', function () {
     fullText.revert();
     runSplit();
   });
-  $('.word').each(function () {
-    let triggerElement = $(this);
-    let targetElement = triggerElement.find('.word-mask');
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        start: 'top bottom',
-        end: 'bottom 20%',
-        scrub: true,
-        delay: 10
-      }
-    });
-    tl.fromTo(targetElement, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.inOut' });
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: textElement,
+      start: 'top bottom',
+      end: 'bottom 20%',
+      scrub: true,
+      delay: 10
+    }
   });
+  tl.fromTo(targetElement, { opacity: 0 }, { opacity: 1, duration: 1, ease: 'power2.inOut', stagger: 0.1 });
 });

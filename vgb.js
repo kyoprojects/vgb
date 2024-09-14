@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function () {
     console.log(fullText);
     $('.word').append('<div class="word-mask"></div>');
   }
-  runSplit();
+  runSplit(textElement);
   window.addEventListener('resize', () => {
     fullText.revert();
     runSplit();

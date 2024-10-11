@@ -2,3 +2,8 @@
   border-image: radial-gradient(circle, #f8475e 0%, #963d7f 25%, #b42dd0 43%, #d226d0 63%, #e12b3a 84%, #6821ff 100%);
   border-image-slice: 1;
 }
+
+.gradient-border-badge {
+  border-image: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
+  border-image-slice: 1;
+}

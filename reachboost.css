@@ -1,9 +1,4 @@
 .gradient-border-label {
-  border: 4px solid; /* Defines the width of the border */
   border-image: radial-gradient(circle, #f8475e 0%, #963d7f 25%, #b42dd0 43%, #d226d0 63%, #e12b3a 84%, #6821ff 100%);
-  border-image-slice: 1; /* Ensures the gradient fills the entire border */
-  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background inside the border */
-  border-radius: 10px; /* Add this to round the edges of your button */
-  padding: 10px 20px; /* Adjust padding to space out the content inside */
-  display: inline-block;
+  border-image-slice: 1;
 }

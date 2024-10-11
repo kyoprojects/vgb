@@ -7,4 +7,5 @@
 .gradient-border-badge {
   border-image: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
   border-image-slice: 1;
+  border-radius: 10px !important;
 }

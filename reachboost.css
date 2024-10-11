@@ -4,8 +4,30 @@
   border-radius: 99px !important;
 }
 
-.gradient-border-badge {
+/* .gradient-border-badge {
   border-image: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
   border-image-slice: 1;
   border-radius: 10px !important;
+  border: 2px solid transparent;
+} */
+
+.gradient-border-badge {
+  position: relative;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  display: inline-block;
+  z-index: 1;
+}
+
+.gradient-border-badge::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  z-index: -1;
+  background: linear-gradient(90deg, #33b6ff 0%, #006acc 50%, #4c89ff 100%);
+  border-radius: 14px; /* Ensure this matches the button's border-radius */
 }

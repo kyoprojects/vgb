@@ -1,6 +1,7 @@
-// dom contentloaded eventstnr
-
 window.addEventListener('DOMContentLoaded', function () {
+  let mm = gsap.matchMedia();
+  gsap.registerPlugin(ScrollTrigger);
+
   //lenis
   const lenis = new Lenis();
   function raf(time) {
@@ -10,7 +11,6 @@ window.addEventListener('DOMContentLoaded', function () {
   requestAnimationFrame(raf);
 
   // header
-  // let targetElement = document.querySelector(".framer-1jbc6qn");
   let targetElement = document.querySelector('.header-wrap');
   let lastScrollTop = 0;
   let threshold = 100;
@@ -44,7 +44,6 @@ window.addEventListener('DOMContentLoaded', function () {
     function runSplit() {
       // Split the text into words within the current element
       fullText = new SplitType(element, { types: 'words' });
-      console.log(fullText);
 
       // Append word masks to words within the current element
       element.querySelectorAll('.word').forEach(word => {
@@ -54,12 +53,13 @@ window.addEventListener('DOMContentLoaded', function () {
       });
     }
     runSplit();
-    window.addEventListener('resize', () => {
-      fullText.revert();
-      runSplit();
+    mm.add('(min-width: 1400px)', () => {
+      window.addEventListener('resize', () => {
+        fullText.revert();
+        runSplit();
+      });
     });
     let masks = element.querySelectorAll('.word-mask');
-    console.log(masks);
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: element,
